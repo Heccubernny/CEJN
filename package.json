@@ -4,8 +4,8 @@
   "description": "I dont know yet app. Are you collecting my data node",
   "main": "app.js",
   "scripts": {
-    "start": "./node_modules/.bin/netlify-lambda serve src",
-    "build": "./node_modules/.bin/netlify-lambda build src"
+    "start": "node start",
+    "build": "node build"
   },
   "author": "Heccubernny",
   "license": "ISC",
