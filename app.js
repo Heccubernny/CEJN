@@ -6,6 +6,7 @@ var http = require('http');
 var urlencoded = require('url');
 var json = require('json');
 var logger = require('logger');
+var serverless = require('severless-http');
 //var serveFavicon = require('serve-favicon');
 var jade = require('jade');
 //var pug = require('pug');
@@ -26,7 +27,7 @@ app.use(bodyParser.json({
 app.use(bodyParser.urlencoded({limit: '50mb',/*limit for URL Encode(image data)*/ extended: true}));
 app.use(methodOverride());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use('./netlify/function/', app);
 app.get('/', routes.index);
 app.post('/createdb', (req, res)=>{
 	nano.db.create(req.body.dbname, (err)=>{
@@ -90,3 +91,5 @@ app.post('/delete_contact', (req, res)=>{
 
 http.createServer(app).listen(app.get('port'), function(){
 	console.log('Express server listen on port ' + app.get('port'));});
+
+module.exports.handler = serverless(app);

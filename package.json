@@ -4,7 +4,8 @@
   "description": "I dont know yet app. Are you collecting my data node",
   "main": "app.js",
   "scripts": {
-    "test": "start"
+    "start": "./node_modules/.bin/netlify-lambda serve src",
+    "build": "./node_modules/.bin/netlify-lambda build src"
   },
   "author": "Heccubernny",
   "license": "ISC",
@@ -18,10 +19,11 @@
     "logger": "0.0.1",
     "method-override": "^3.0.0",
     "nano": "^9.0.3",
+    "netlify-lambda": "^2.0.15",
     "node-couchdb": "^1.3.0",
     "pug": "^3.0.0",
     "serve-favicon": "^2.5.0",
+    "serverless-http": "^3.0.1",
     "url": "^0.11.0"
-  },
-  "devDependencies": {}
+  }
 }
